@@ -459,6 +459,5 @@ int main(int argc, char** argv)
 
 	list<feature> feature_list;
 	get_sift_descriptor(f_img, feature_list);
-	cout << "feature size:" << feature_list.size() << endl;
 	show_sift_desc(f_img, feature_list, "C:\\Users\\dhruv\\Desktop\\corner");
 }
