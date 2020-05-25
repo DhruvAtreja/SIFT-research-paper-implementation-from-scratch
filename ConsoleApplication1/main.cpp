@@ -38,7 +38,7 @@ struct feature
 };
 
 int get_sift_descriptor(Mat& img, list<feature>& feature_list);
-bool show_sift_desc(Mat& img, list<feature>& feature_list, const char out_file_name[]);
+bool show_sift_desc(Mat& img, list<feature>& feature_list);
 
 #define PI 3.1415927
 #define LITTLE 0.000001
@@ -56,7 +56,7 @@ bool _get_accurate_pos(Mat* p_forward_DoG, Mat* p_this_DoG, Mat* p_Next_DoG, int
 bool _get_feature_ori(feature& new_feature, Mat* pGaussian_img);
 
 
-bool show_sift_desc(Mat& img, list<feature>& feature_list, const char out_file_name[])
+bool show_sift_desc(Mat& img, list<feature>& feature_list)
 {
 	double p2_x = 0, p2_y = 0;
 	double x = 0, y = 0;
@@ -71,7 +71,7 @@ bool show_sift_desc(Mat& img, list<feature>& feature_list, const char out_file_n
 		circle(img, Point(it->x, it->y), 2, Scalar(0, 255, 0), 3, LINE_AA);
 	}
 	
-	namedWindow("Display window", WINDOW_AUTOSIZE);// Create a window for display.
+	namedWindow("Display window", WINDOW_AUTOSIZE);
 	imshow("Display window", img);
 	return true;
 }
@@ -459,5 +459,5 @@ int main(int argc, char** argv)
 
 	list<feature> feature_list;
 	get_sift_descriptor(f_img, feature_list);
-	show_sift_desc(f_img, feature_list, "C:\\Users\\dhruv\\Desktop\\corner");
+	show_sift_desc(f_img, feature_list);
 }
